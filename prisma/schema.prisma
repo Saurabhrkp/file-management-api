@@ -37,7 +37,7 @@ model File {
   user         User          @relation(fields: [userId], references: [id])
   active       Boolean       @default(true)
   createdOn    DateTime      @default(now())
-  createdBy    Int
+  deletedOn    DateTime?
   updatedOn    DateTime      @updatedAt
   updatedBy    Int?
 
@@ -48,13 +48,11 @@ model File {
 
 model FileVersion {
   id        Int      @id @default(autoincrement())
-  version   Int
+  version   Int      @default(0)
   path      String
   fileId    Int
   file      File     @relation(fields: [fileId], references: [id])
-  active    Boolean  @default(true)
   createdOn DateTime @default(now())
-  createdBy Int
   updatedOn DateTime @updatedAt
   updatedBy Int?
 
