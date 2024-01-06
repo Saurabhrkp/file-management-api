@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import compression from 'compression';
 import helmet from 'helmet';
+import fs from 'fs';
 import 'express-async-errors';
 
 import { ApiError, InternalError, NotFoundError } from 'helpers/errors';
@@ -49,7 +50,15 @@ app.use((_req, _res, next) =>
 app.use(errorLogger);
 
 // Middleware Error Handler
-app.use((err, _req, res, _next) => {
+app.use(async (err, req, res, _next) => {
+	const files = req.files;
+	if (files?.file !== undefined && files?.file.length > 0 && files?.file[0].path) {
+		try {
+			await fs.promises.unlink(files.file[0].path);
+		} catch (error) {
+			console.log(error);
+		}
+	}
 	if (err instanceof ApiError) return ApiError.handle(err, res);
 	if (environment === 'production')
 		return ApiError.handle(new InternalError(), res);
