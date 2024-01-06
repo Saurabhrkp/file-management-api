@@ -11,7 +11,27 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+  id       Int    @id @default(autoincrement())
+  email    String
+  username String @unique
+  password String
+  files    File[]
+}
+
+model File {
+  id       Int           @id @default(autoincrement())
+  name     String
+  path     String
+  category String
+  versions FileVersion[]
+  userId   Int
+  user     User          @relation(fields: [userId], references: [id])
+}
+
+model FileVersion {
+  id      Int    @id @default(autoincrement())
+  version Int
+  path    String
+  fileId  Int
+  file    File   @relation(fields: [fileId], references: [id])
 }
