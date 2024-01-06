@@ -1,12 +1,10 @@
-import { Response } from 'express'
-
 // Helper code for the API consumer to understand the error and handle is accordingly
 export const StatusCode = {
 	SUCCESS: '10000',
 	FAILURE: '10001',
 	RETRY: '10002',
 	INVALID_ACCESS_TOKEN: '10003',
-}
+};
 
 export const ResponseStatus = {
 	SUCCESS: 200,
@@ -17,124 +15,124 @@ export const ResponseStatus = {
 	FORBIDDEN: 403,
 	NOT_FOUND: 404,
 	INTERNAL_ERROR: 500,
-}
+};
 
 export const authFailureResponse = (
-	res: Response,
+	res,
 	errors = [{ message: 'Authentication Failure' }]
 ) => {
 	return res
 		.status(ResponseStatus.UNAUTHORIZED)
-		.json({ statusCode: StatusCode.FAILURE, errors })
-}
+		.json({ statusCode: StatusCode.FAILURE, errors });
+};
 
 export const notFoundResponse = (
-	res: Response,
+	res,
 	errors = [{ message: 'Not Found' }]
 ) => {
-	const url = res.req.originalUrl
+	const url = res.req.originalUrl;
 	return res
 		.status(ResponseStatus.NOT_FOUND)
-		.json({ statusCode: StatusCode.FAILURE, errors, url })
-}
+		.json({ statusCode: StatusCode.FAILURE, errors, url });
+};
 
 export const forbiddenResponse = (
-	res: Response,
+	res,
 	errors = [{ message: 'Forbidden' }]
 ) => {
 	return res
 		.status(ResponseStatus.FORBIDDEN)
-		.json({ statusCode: StatusCode.FAILURE, errors })
-}
+		.json({ statusCode: StatusCode.FAILURE, errors });
+};
 
 export const badRequestResponse = (
-	res: Response,
+	res,
 	errors = [{ message: 'Bad Parameters' }]
 ) => {
 	return res
 		.status(ResponseStatus.BAD_REQUEST)
-		.json({ statusCode: StatusCode.FAILURE, errors })
-}
+		.json({ statusCode: StatusCode.FAILURE, errors });
+};
 
 export const internalErrorResponse = (
-	res: Response,
+	res,
 	errors = [{ message: 'Internal Error' }]
 ) => {
 	return res
 		.status(ResponseStatus.INTERNAL_ERROR)
-		.json({ statusCode: StatusCode.FAILURE, errors })
-}
+		.json({ statusCode: StatusCode.FAILURE, errors });
+};
 
-export const successMsgResponse = (res: Response, message = 'Success') => {
+export const successMsgResponse = (res, message = 'Success') => {
 	return res
 		.status(ResponseStatus.SUCCESS)
-		.json({ statusCode: StatusCode.SUCCESS, message })
-}
+		.json({ statusCode: StatusCode.SUCCESS, message });
+};
 
 export const failureMsgResponse = (
-	res: Response,
+	res,
 	errors = [{ message: 'Failed' }]
 ) => {
 	return res
 		.status(ResponseStatus.INTERNAL_ERROR)
-		.json({ statusCode: StatusCode.FAILURE, errors })
-}
+		.json({ statusCode: StatusCode.FAILURE, errors });
+};
 
 export const successResponse = (
-	res: Response,
-	data: any,
+	res,
+	data,
 	message = 'Success'
 ) => {
 	return res
 		.status(ResponseStatus.SUCCESS)
-		.json({ statusCode: StatusCode.SUCCESS, message, data })
-}
+		.json({ statusCode: StatusCode.SUCCESS, message, data });
+};
 
 export const paginatedResponse = (
-	res: Response,
-	data: any,
-	pagination: object,
+	res,
+	data,
+	pagination,
 	message = 'Success'
 ) => {
 	return res
 		.status(ResponseStatus.SUCCESS)
-		.json({ statusCode: StatusCode.SUCCESS, message, data, pagination })
-}
+		.json({ statusCode: StatusCode.SUCCESS, message, data, pagination });
+};
 
 export const customResponse = (
-	res: Response,
-	data: any,
+	res,
+	data,
 	message = 'Success'
 ) => {
 	return res
 		.status(ResponseStatus.SUCCESS)
-		.json({ statusCode: StatusCode.SUCCESS, message, ...data })
-}
+		.json({ statusCode: StatusCode.SUCCESS, message, ...data });
+};
 
 export const createdResponse = (
-	res: Response,
-	data: any,
+	res,
+	data,
 	message = 'Created'
 ) => {
 	return res
 		.status(ResponseStatus.CREATED)
-		.json({ statusCode: StatusCode.SUCCESS, message, data })
-}
+		.json({ statusCode: StatusCode.SUCCESS, message, data });
+};
 
 export const accessTokenErrorResponse = (
-	res: Response,
+	res,
 	errors = [{ message: 'Access token invalid' }]
 ) => {
-	res.setHeader('instruction', 'refresh_token')
+	res.setHeader('instruction', 'refresh_token');
 	return res
 		.status(ResponseStatus.UNAUTHORIZED)
-		.json({ statusCode: StatusCode.INVALID_ACCESS_TOKEN, errors })
-}
+		.json({ statusCode: StatusCode.INVALID_ACCESS_TOKEN, errors });
+};
 
 export const tokenRefreshResponse = (
-	res: Response,
-	accessToken: string,
-	refreshToken: string,
+	res,
+	accessToken,
+	refreshToken,
 	message = 'Access token'
 ) => {
 	return res
@@ -144,5 +142,5 @@ export const tokenRefreshResponse = (
 			message,
 			accessToken,
 			refreshToken,
-		})
-}
+		});
+};

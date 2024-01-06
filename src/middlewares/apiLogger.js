@@ -1,5 +1,5 @@
-import { transports, format } from 'winston'
-import expressWinston from 'express-winston'
+import { transports, format } from 'winston';
+import expressWinston from 'express-winston';
 
 export const apiLogger = expressWinston.logger({
 	transports: [new transports.Console()],
@@ -7,8 +7,8 @@ export const apiLogger = expressWinston.logger({
 		format.errors({ stack: true }),
 		format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
 		format.printf(({ level, message, timestamp, stack }) => {
-			if (stack) return `${timestamp} ${level}: ${message}\n${stack}` // Custom format for error logs
-			return `${timestamp} ${level}: ${message}` // Default format for other logs
+			if (stack) return `${timestamp} ${level}: ${message}\n${stack}`; // Custom format for error logs
+			return `${timestamp} ${level}: ${message}`; // Default format for other logs
 		})
 	),
 	meta: false,
@@ -16,7 +16,7 @@ export const apiLogger = expressWinston.logger({
 	colorize: false,
 	statusLevels: true,
 	skip: (req, _res) => req.method === 'OPTIONS',
-})
+});
 
 export const errorLogger = expressWinston.errorLogger({
 	transports: [new transports.Console()],
@@ -24,10 +24,10 @@ export const errorLogger = expressWinston.errorLogger({
 		format.errors({ stack: true }),
 		format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
 		format.printf(({ level, message, timestamp, meta }) => {
-			const error = JSON.stringify(meta?.error)
-			const username = JSON.stringify(meta?.username)
-			console.error({ timestamp, level, message, meta })
-			return `${timestamp} ${level}: ${message}, username: ${username}, error: ${error}`
+			const error = JSON.stringify(meta?.error);
+			const username = JSON.stringify(meta?.username);
+			console.error({ timestamp, level, message, meta });
+			return `${timestamp} ${level}: ${message}, username: ${username}, error: ${error}`;
 		})
 	),
 	meta: true,
@@ -39,7 +39,7 @@ export const errorLogger = expressWinston.errorLogger({
 			body: req.body,
 			username: res.locals?.payload?.username,
 			tokenId: res.locals?.payload?.tokenId,
-		}
+		};
 	},
 	skip: (req, _res) => req.method === 'OPTIONS',
-})
+});

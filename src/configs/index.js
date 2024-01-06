@@ -18,8 +18,18 @@ export const MINUTES_IN_HOUR = 60
 export const SECONDS_IN_MINUTES = 60
 export const MILLISECONDS_IN_SECOND = 1000
 
-export const sercretKeys = {
-	privateKey: process.env.PRIVATE_KEY,
-	publicKey: process.env.PUBLIC_KEY,
-	apiKey: process.env.API_KEY,
+export const keys = {
+	privateKey: process.env.PRIVATE_KEY || '',
+	publicKey: process.env.PUBLIC_KEY || '',
+}
+
+export const tokenInfo = {
+	accessTokenValidityDays: parseInt(
+		process.env.ACCESS_TOKEN_VALIDITY_DAYS || '15'
+	),
+	refreshTokenValidityDays: parseInt(
+		process.env.REFRESH_TOKEN_VALIDITY_DAYS || '30'
+	),
+	issuer: process.env.TOKEN_ISSUER || 'files_app',
+	audience: process.env.TOKEN_AUDIENCE || 'files_app_user',
 }
