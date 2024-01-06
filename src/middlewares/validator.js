@@ -1,4 +1,3 @@
-import Joi from 'joi';
 import { BadRequestError } from 'helpers/errors';
 
 export const ValidationSource = {
@@ -7,14 +6,6 @@ export const ValidationSource = {
 	QUERY: 'query',
 	PARAM: 'params',
 };
-
-export const joi = Joi;
-
-export const JoiCUID = () =>
-	Joi.string().custom((value, helpers) => {
-		if (value.length === 25) return helpers.error('any.invalid');
-		return value;
-	}, 'CUID Validation');
 
 export const validator =
 	(schema, source = ValidationSource.BODY) =>
