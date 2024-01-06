@@ -29,7 +29,6 @@ export const validateTokenData = async (
 export const createTokens = async ({
 	userId,
 	username,
-	tokenId,
 	accessTokenKey,
 	refreshTokenKey,
 }) => {
@@ -39,7 +38,6 @@ export const createTokens = async ({
 			audience,
 			userId,
 			username,
-			tokenId,
 			param: accessTokenKey,
 			validity: accessTokenValidityDays,
 		})
@@ -53,7 +51,6 @@ export const createTokens = async ({
 			audience,
 			userId,
 			username,
-			tokenId,
 			param: refreshTokenKey,
 			validity: refreshTokenValidityDays,
 		})

@@ -23,10 +23,10 @@ export const keys = {
 
 export const tokenInfo = {
 	accessTokenValidityDays: parseInt(
-		process.env.ACCESS_TOKEN_VALIDITY_DAYS || '15'
+		process.env.ACCESS_TOKEN_VALIDITY_DAYS || '1'
 	),
 	refreshTokenValidityDays: parseInt(
-		process.env.REFRESH_TOKEN_VALIDITY_DAYS || '30'
+		process.env.REFRESH_TOKEN_VALIDITY_DAYS || '15'
 	),
 	issuer: process.env.TOKEN_ISSUER || 'files_app',
 	audience: process.env.TOKEN_AUDIENCE || 'files_app_user',
