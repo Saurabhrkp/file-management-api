@@ -11,27 +11,53 @@ datasource db {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  email    String
-  username String @unique
-  password String
-  files    File[]
+  id           Int      @id @default(autoincrement())
+  email        String
+  username     String   @unique
+  passwordHash String
+  files        File[]
+  active       Boolean  @default(true)
+  createdOn    DateTime @default(now())
+  updatedOn    DateTime @updatedAt
+
+  @@index([id])
+  @@index([username])
 }
 
 model File {
-  id       Int           @id @default(autoincrement())
-  name     String
-  path     String
-  category String
-  versions FileVersion[]
-  userId   Int
-  user     User          @relation(fields: [userId], references: [id])
+  id           Int           @id @default(autoincrement())
+  name         String
+  originalname String
+  path         String
+  category     String
+  mimetype     String
+  size         Float?        @default(0)
+  versions     FileVersion[]
+  userId       Int
+  user         User          @relation(fields: [userId], references: [id])
+  active       Boolean       @default(true)
+  createdOn    DateTime      @default(now())
+  createdBy    Int
+  updatedOn    DateTime      @updatedAt
+  updatedBy    Int?
+
+  @@index([id])
+  @@index([userId])
+  @@index([category])
 }
 
 model FileVersion {
-  id      Int    @id @default(autoincrement())
-  version Int
-  path    String
-  fileId  Int
-  file    File   @relation(fields: [fileId], references: [id])
+  id        Int      @id @default(autoincrement())
+  version   Int
+  path      String
+  fileId    Int
+  file      File     @relation(fields: [fileId], references: [id])
+  active    Boolean  @default(true)
+  createdOn DateTime @default(now())
+  createdBy Int
+  updatedOn DateTime @updatedAt
+  updatedBy Int?
+
+  @@index([id])
+  @@index([fileId])
 }
