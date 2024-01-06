@@ -2,7 +2,7 @@ import multer from 'multer';
 import cuid from 'cuid';
 import { SIZES } from 'configs';
 
-export const uploadMediaHandler = (feildNames) => (req, res, next) => {
+export const uploadFileHandler = (feildNames) => (req, res, next) => {
   const storage = multer.diskStorage({
     destination: (_req, _file, callback) => {
       callback(null, './uploads/'); // specify the path to save files
