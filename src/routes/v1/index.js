@@ -1,7 +1,8 @@
-import { Router } from 'express'
+import { Router } from 'express';
+import users from './users/route';
 
-const router = Router()
+const router = Router();
 
-router.use('/task', () => {})
+router.use('/users', users);
 
-export default router
+export default router;
