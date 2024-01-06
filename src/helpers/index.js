@@ -1,6 +1,7 @@
 import multer from 'multer';
 import cuid from 'cuid';
 import { SIZES } from 'configs';
+import _ from 'lodash';
 
 export const uploadFileHandler = (feildNames) => (req, res, next) => {
   const storage = multer.diskStorage({
@@ -24,4 +25,42 @@ export const uploadFileHandler = (feildNames) => (req, res, next) => {
   }).fields(feildNames);
 
   return uploadHandler(req, res, next);
+};
+
+export const queryHelper = (query) => {
+  const pagination = { startIndex: 0, limit: 50 }; // startIndex, limit
+  const searching = { search: '', active: '1', category: '' }; // search
+  const sorting = { sort: 'createdOn', sortDirection: 'asc' }; // sort, sortDirection
+  const filter = { ids: [], categories: [], mimeTypes: [] };
+
+  for (const key in pagination) {
+    if (Object.hasOwnProperty.call(pagination, key)) {
+      if (Object.hasOwnProperty.call(query, key))
+        pagination[key] = +query[key];
+    }
+  }
+  for (const key in searching) {
+    if (Object.hasOwnProperty.call(searching, key)) {
+      searching[key] = query[key];
+    }
+  }
+  for (const key in filter) {
+    if (Object.hasOwnProperty.call(filter, key)) {
+      let values = query[key] || '';
+      const ids = values.split(',');
+      const validIds = [];
+      for (const id of ids) {
+        const valid = !_.isEmpty(id);
+        if (valid) validIds.push(id);
+      }
+      filter[key] = validIds;
+    }
+  }
+  for (const key in sorting) {
+    if (Object.hasOwnProperty.call(sorting, key)) {
+      sorting[key] = query[key];
+    }
+  }
+
+  return { pagination, searching, sorting, filter };
 };
