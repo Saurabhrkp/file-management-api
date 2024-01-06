@@ -12,15 +12,12 @@ export const validator =
 		(req, _res, next) => {
 			try {
 				const { error } = schema.validate(req[source]);
-
 				if (!error) return next();
-				console.error(error);
 
 				const { details } = error;
 				const message = details
 					.map((i) => i.message.replace(/['"]+/g, ''))
 					.join(',');
-				console.info(message);
 
 				return next(new BadRequestError(message));
 			} catch (error) {
