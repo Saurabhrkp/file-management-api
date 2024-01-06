@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/Saurabhrkp/file-management-api/compare/v1.1.0...v1.2.0) (2024-01-06)
+
+
+### Features
+
+* **auth:** removes unused locals ([5799d3a](https://github.com/Saurabhrkp/file-management-api/commit/5799d3aa4e73812044d0df300b07b8be589988a6))
+* **auth:** updates authUtils & configs ([ce823f1](https://github.com/Saurabhrkp/file-management-api/commit/ce823f1bb8cf8a71f9521f663fe03c307a53ce0c))
+* **delete-file-on-error:** adds auto delete file on error ([7c77c2d](https://github.com/Saurabhrkp/file-management-api/commit/7c77c2dabe3f6631ab35a3d0261af73e2a86b902))
+* **file:** adds files routes and services with schema ([cd98e8c](https://github.com/Saurabhrkp/file-management-api/commit/cd98e8ce4a27a35f241f290a96fd2a52e17c65f5))
+* **lodash:** adds lodash as dependency ([ac16697](https://github.com/Saurabhrkp/file-management-api/commit/ac16697ebfa32c8e11550e33c813c95efb93e980))
+* **query-helper:** adds query helper functions ([5d38658](https://github.com/Saurabhrkp/file-management-api/commit/5d3865824a90c5c066a1e5d03178e7c4bcba0c1d))
+* **route:** adds new file route to router ([8826c0c](https://github.com/Saurabhrkp/file-management-api/commit/8826c0c2947c71777031aa0721ee38e4835606ee))
+* **route:** adds users route to main router ([55e89f5](https://github.com/Saurabhrkp/file-management-api/commit/55e89f56a4337e47601e3fc1dbeaee071b692f6c))
+* **schema:** updates file &  file version model ([be5686d](https://github.com/Saurabhrkp/file-management-api/commit/be5686d715a61854bba24a540065245d7e29db22))
+* **schema:** updates schema for all models ([717b602](https://github.com/Saurabhrkp/file-management-api/commit/717b602f7386ca04b0e915fb698300cea7335047))
+* **upload-handler:** creates multer diskstorage upload handler ([878d6db](https://github.com/Saurabhrkp/file-management-api/commit/878d6db1aaddb869234ff81dd5e79c0f4e1d4cd7))
+* **users:** adds users access route ([1855f5a](https://github.com/Saurabhrkp/file-management-api/commit/1855f5a88c1e518fbd79cb63e0211a8f1a3ae08d))
+* **validator:** removes unwanted imports ([7af3197](https://github.com/Saurabhrkp/file-management-api/commit/7af31973eca721d3aa1a9a25b70c0444d62a0f5b))
+
+
+### Bug Fixes
+
+* **typo:** fixes typo for limit file size in mb ([fccdbe2](https://github.com/Saurabhrkp/file-management-api/commit/fccdbe2723b230e26e1fb111094377c88a710ec4))
+* **validator:** removes console.logs ([3f33c55](https://github.com/Saurabhrkp/file-management-api/commit/3f33c5529e9f3765dd5ecdf01effd79eb59571c9))
+
 ## 1.1.0 (2024-01-06)
 
 
