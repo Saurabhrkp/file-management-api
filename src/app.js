@@ -51,6 +51,7 @@ app.use(errorLogger);
 
 // Middleware Error Handler
 app.use(async (err, req, res, _next) => {
+	// Auto file deletion from uploads folder on error
 	const files = req.files;
 	if (files?.file !== undefined && files?.file.length > 0 && files?.file[0].path) {
 		try {
