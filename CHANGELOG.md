@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/Saurabhrkp/file-management-api/compare/v1.3.4...v1.4.0) (2024-01-07)
+
+
+### Features
+
+* **env:** adds env to git & uploads folder ([ea80692](https://github.com/Saurabhrkp/file-management-api/commit/ea80692a5a7766b754149165527968d43273c90c))
+
 ### [1.3.4](https://github.com/Saurabhrkp/file-management-api/compare/v1.3.3...v1.3.4) (2024-01-07)
 
 ### [1.3.3](https://github.com/Saurabhrkp/file-management-api/compare/v1.3.2...v1.3.3) (2024-01-07)
