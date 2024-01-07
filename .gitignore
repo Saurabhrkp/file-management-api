@@ -10,7 +10,7 @@ yarn-error.log*
 
 # migrations
 migrations
-uploads
+uploads/*
 *.db
 *.db-journal
 
