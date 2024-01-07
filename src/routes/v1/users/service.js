@@ -52,7 +52,7 @@ class AccessService {
     const refreshTokenKey = cuid();
 
     const tokens = await createTokens({ userId, username, email: payload.email, accessTokenKey, refreshTokenKey });
-    return [tokens, sessionId];
+    return tokens;
   }
 }
 
