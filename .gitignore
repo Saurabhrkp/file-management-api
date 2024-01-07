@@ -6,11 +6,10 @@ yarn-debug.log*
 yarn-error.log*
 
 # /
-.env
+# .env
 
 # migrations
 migrations
-uploads/*
 *.db
 *.db-journal
 
