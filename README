@@ -2,6 +2,16 @@
 
 This is a simple file management API built with Node.js. It allows users to upload, list, and delete files. It also implements file categorization functionality.
 
+## Features
+
+- User authentication using JWT (JSON Web Tokens).
+- File upload, listing, and deletion.
+- File categorization.
+- File versioning.
+- Server-side storage for user's file data.
+- Data encryption for sensitive information.
+- Auto Deletion of file on error
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -37,6 +47,7 @@ These instructions will get you a copy of the project up and running on your loc
 - Express.js
 - Multer
 - Prisma
+- SQLite
 
 ## Authors
 
