@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/Saurabhrkp/file-management-api/compare/v1.2.0...v1.3.0) (2024-01-07)
+
+
+### Features
+
+* **script:** updates start script ([9a1075d](https://github.com/Saurabhrkp/file-management-api/commit/9a1075d1e1ec106a8c4b5fb7e61422d53da8587e))
+
 ## [1.2.0](https://github.com/Saurabhrkp/file-management-api/compare/v1.1.0...v1.2.0) (2024-01-06)
 
 
