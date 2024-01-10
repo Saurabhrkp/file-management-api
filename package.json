@@ -42,20 +42,11 @@
     "@babel/core": "^7.23.3",
     "@babel/node": "^7.22.19",
     "@babel/preset-env": "^7.23.3",
-    "@types/compression": "^1.7.5",
-    "@types/cors": "^2.8.17",
-    "@types/express": "^4.17.21",
-    "@types/express-winston": "^4.0.0",
-    "@types/jsonwebtoken": "^9.0.5",
-    "@types/node": "^20.10.6",
-    "@types/winston": "^2.4.4",
     "babel-plugin-config-module-resolver": "^1.0.2",
     "babel-plugin-inline-dotenv": "^1.7.0",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
-    "standard-version": "^9.5.0",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^5.3.3"
+    "standard-version": "^9.5.0"
   },
   "config": {
     "commitizen": {
